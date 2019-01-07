@@ -38,4 +38,4 @@ print(link_node.name, link_node['href'], link_node.get_text())
 
 print('获取p段落文字')
 p_node = soup.find('p', class_="title")
-print(p_node.name,p_node.get_text())
+print(p_node.name, p_node.get_text())

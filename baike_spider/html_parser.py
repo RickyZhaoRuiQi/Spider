@@ -19,10 +19,12 @@ class HtmlParser(object):
     def get_new_urls(self, page_url, soup):
         new_urls = set()
 
-        # /item/123.html
+        # /item/xxx
         links = soup.find_all('a', href=re.compile(r"/item/*"))
         for link in links:
             new_url = link['href']
+
+            # 加入基本URL和可能的相对URL以形成后者的绝对地址
             new_full_url = urllib.parse.urljoin(page_url, new_url)
             new_urls.add(new_full_url)
         return new_urls
